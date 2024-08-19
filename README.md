@@ -21,14 +21,14 @@ When `Default` and `AllowedValues` are not provided, the script generates a stri
 
 | `config.json` file | Config as Environment variable(s) | Description |
 |---------------|-----------------------------|-------------|
-| `exclude_folders` | `exclude_folders` | In JSON, this value is a list of folder names. As an environment variable, please use a comma-separated value, like `jenkins,ansible`. The folder names foud within `exclude_folders` will be skipped and the remaining YAML files will be parsed for Parameters within them and pseudo values would be generated for the same |
+| `exclude_folders` | `exclude_folders` | In JSON, this value is a `list` of folder names. As an environment variable, please use a `comma-separated values`, like `jenkins,ansible`. The folder names found within `exclude_folders` will be skipped and the remaining YAML files will be parsed for Parameters within them and pseudo values would be generated for the same |
 
-# Tool Compatibility
+# Compatibility
 
 | Language | Status |
 |-------|------|
-| `json` | :white_check_mark: |
-| `yaml` | :white_check_mark: |
+| `YAML` | :white_check_mark: |
+| `JSON` | :x: |
 
 # Future development
 
