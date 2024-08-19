@@ -10,6 +10,11 @@ logger.setLevel(environ['LOG_LEVEL'] if 'LOG_LEVEL' in environ.keys() else 'INFO
 from parameter_type_handler.parameter_type_handler import ParameterTypeHandler
 parameter_type_handler = ParameterTypeHandler(logger=logger)
 
+from config_handler.config_handler import ConfigHandler
+
+config_handler = ConfigHandler(logger=logger)
+logger.debug("Combined config - " + str(config_handler.config))
+
 file_paths = []
 
 # list_yaml_files: Creates a list of YAML files recursively within current directory and nested directories within the current directory, returns a list of YAML files
@@ -22,7 +27,6 @@ def list_yaml_files(start_path: str) -> list:
             file_paths.append(str(path) + "/" + str(f))
 
     yaml_files = []
-    ignored_yaml_folders = [ 'ansible' ]
 
     for file_path in file_paths:
         
@@ -30,7 +34,7 @@ def list_yaml_files(start_path: str) -> list:
 
         if '.' not in f_arr[1][0]:
 
-            if f_arr[1] not in ignored_yaml_folders:
+            if f_arr[1] not in config_handler.config["exclude_folders"]:
 
                 if ".yml" in f_arr[-1] or ".yaml" in f_arr[-1]:
 
