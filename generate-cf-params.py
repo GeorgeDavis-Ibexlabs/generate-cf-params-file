@@ -34,11 +34,15 @@ def list_yaml_files(start_path: str) -> list:
 
         if '.' not in f_arr[1][0]:
 
-            if f_arr[1] not in config_handler.config["exclude_folders"]:
+            if "exclude_folders" in config_handler.config:
+                
+                if f_arr[1] not in config_handler.config["exclude_folders"] and ( ".yml" in f_arr[-1] or ".yaml" in f_arr[-1] ):
 
-                if ".yml" in f_arr[-1] or ".yaml" in f_arr[-1]:
+                    yaml_files.append(file_path)
 
-                        yaml_files.append(file_path)
+            elif ".yml" in f_arr[-1] or ".yaml" in f_arr[-1]:
+
+                yaml_files.append(file_path)
 
     return yaml_files
 
@@ -141,11 +145,11 @@ if __name__ == '__main__':
     files_list = list_yaml_files('.')
     logger.info("Identified " + str(len(files_list)) + " YAML files")
 
-    if files_list:
+    # if files_list:
 
-        yaml_files_with_parameters_list = do_parameters_exist(yaml_files_list = files_list)
-        logger.info(str(len(yaml_files_with_parameters_list)) + " out of " + str(len(files_list)) + " are likely to be AWS CloudFormation files")
+    #     yaml_files_with_parameters_list = do_parameters_exist(yaml_files_list = files_list)
+    #     logger.info(str(len(yaml_files_with_parameters_list)) + " out of " + str(len(files_list)) + " are likely to be AWS CloudFormation files")
 
-        params_list = generate_pseudo_parameter_values(_yaml_files_with_parameters_list = yaml_files_with_parameters_list)
+    #     params_list = generate_pseudo_parameter_values(_yaml_files_with_parameters_list = yaml_files_with_parameters_list)
 
-        build_parameter_json_file(params_list = params_list)
+    #     build_parameter_json_file(params_list = params_list)

@@ -19,13 +19,17 @@ class ConfigHandler():
 
         # Create a JSON Config parser
         self.logger = logger
-        self.config = self.get_combined_config()
+        
+        __combined_config = self.get_combined_config()        
+        self.config = __combined_config if __combined_config else {}
 
     # Load the config.json file from the current working directory, or from the GITHUB_WORKSPACE environment variable if running inside GitHub Actions
     def __load_config_file(self) -> dict:
 
         try:
             package_dir = __file__.split(self.__module__.replace('.', '/'))[0]
+
+            config_json = {}
 
             for file in listdir(package_dir):
 
@@ -38,7 +42,7 @@ class ConfigHandler():
 
                         self.logger.debug('Config JSON key values found within ' + file + ' file - ' + str(config_json))
                         
-                        return config_json
+            return config_json
         
         except Exception as e:
             self.logger.error('Error loading config.json file: ' + str(traceback.print_tb(e.__traceback__)))
