@@ -17,6 +17,12 @@ When `Default` and `AllowedValues` are not provided, the script generates a stri
 
 > **Example:** For `AWS::EC2::Subnet::Id`, the script generates a string of `alphabets` with a prefix of `subnet-`. For more information, refer to `generate_value_for_parameter_type()` function within `parameter_type_handler/parameter_type_handler`.
 
+# Configuration
+
+| `config.json` file | Config as Environment variable(s) | Description |
+|---------------|-----------------------------|-------------|
+| `exclude_folders` | `exclude_folders` | In JSON, this value is a list of folder names. As an environment variable, please use a comma-separated value, like `jenkins,ansible`. The folder names foud within `exclude_folders` will be skipped and the remaining YAML files will be parsed for Parameters within them and pseudo values would be generated for the same |
+
 # Tool Compatibility
 
 | Language | Status |
