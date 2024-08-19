@@ -24,6 +24,13 @@ When `Default` and `AllowedValues` are not provided, the script generates a stri
 | `json` | :white_check_mark: |
 | `yaml` | :white_check_mark: |
 
+# Future development
+
+| Next Steps | Status |
+|-------|------|
+| GitHub Action | :construction: |
+| Visual Studio Extension | :construction: |
+
 # Issues?
 
 For any issues or errors with this script, please raise an [issue here](https://github.com/GeorgeDavis-Ibexlabs/generate-cf-params-file/issues)
