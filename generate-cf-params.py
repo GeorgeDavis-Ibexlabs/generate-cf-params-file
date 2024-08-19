@@ -136,7 +136,6 @@ def build_parameter_json_file(params_list: list) -> None:
         logger.error("Error: The params.json file could not be generated. No pseudo parameters were generated.")
         raise Exception("Error: The params.json file could not be generated. No pseudo parameters were generated.")
             
-
 if __name__ == '__main__':
     
     files_list = list_yaml_files('.')
