@@ -7,6 +7,11 @@ on:
   release:
     types: [published]
 
+permissions:
+  actions: read
+  contents: read
+  security-events: write
+
 jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
