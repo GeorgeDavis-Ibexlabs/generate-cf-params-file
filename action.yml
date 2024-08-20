@@ -1,0 +1,14 @@
+---
+name: 'Parse CloudFormation and generate Parameters file'
+description: 'Generate pseudo CloudFormation parameters file using Python'
+author: 'GeorgeDavis-Ibexlabs'
+inputs:
+  exclude_folders:
+    description: 'Exclude list of folder names'  
+    required: false
+branding:
+  icon: 'sliders'
+  color: 'green'
+runs:
+  using: 'docker'
+  image: 'docker://georgedavisibexlabs/generate-cf-params-file:latest'
