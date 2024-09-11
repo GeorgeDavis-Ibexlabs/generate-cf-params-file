@@ -62,7 +62,7 @@ jobs:
         uses: aquasecurity/trivy-action@0.24.0
         with:
           scan-type: 'image'
-          image-ref: 'georgedavisibexlabs/generate-cf-params-file'
+          image-ref: 'georgedavisibexlabs/generate-cf-params-file:main'
           limit-severities-for-sarif: true
           trivy-config: .github/config/trivy-sarif.yaml
     
