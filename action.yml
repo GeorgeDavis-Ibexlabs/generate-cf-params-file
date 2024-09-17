@@ -6,6 +6,14 @@ inputs:
   exclude_folders:
     description: 'Exclude list of folder names'  
     required: false
+  LOG_LEVEL:
+    description: 'Python logging level. Default: INFO'
+    required: false
+    default: INFO
+  LOG_FILENAME:
+    description: 'Python logging to file. This is the filename of the log file. Default: debug.log'
+    required: false
+    default: debug.log
 branding:
   icon: 'sliders'
   color: 'green'
