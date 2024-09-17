@@ -6,7 +6,7 @@ inputs:
   exclude_folders:
     description: 'Exclude list of folder names'  
     required: false
-  LOGLEVEL:
+  LOG_LEVEL:
     description: 'Python logging level. Default: INFO'
     required: false
     default: INFO
