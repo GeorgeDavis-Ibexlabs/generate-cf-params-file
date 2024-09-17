@@ -3,8 +3,20 @@ from os import environ, walk
 import logging
 from cfn_tools import load_yaml
 
-logging.basicConfig()
-logger = logging.getLogger(__name__)
+# Setting up the logging level from the environment variable `LOGLEVEL`.
+if 'LOG_FILENAME' in environ.keys():
+    logging.basicConfig(
+        filename=environ['LOG_FILENAME'],
+        filemode='a',
+        format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
+        datefmt='%H:%M:%S',
+        level=logging.DEBUG
+    )
+    logger = logging.getLogger(__name__)
+else:
+    logging.basicConfig()
+    logger = logging.getLogger(__name__)
+
 logger.setLevel(environ['LOG_LEVEL'] if 'LOG_LEVEL' in environ.keys() else 'INFO')
 
 from parameter_type_handler.parameter_type_handler import ParameterTypeHandler
