@@ -38,7 +38,7 @@ This Python script discovers CloudFormation files written in YAML and builds a p
 
 ```
     - name: Generate pseduo CloudFormation Parameters file 
-      uses: GeorgeDavis-Ibexlabs/generate-cf-params-file@v0.0.1
+      uses: GeorgeDavis-Ibexlabs/generate-cf-params-file@v0.0.3
 ```
 Refer to [Generate CloudFormation Parameters file using GitHub Actions](https://github.com/marketplace/actions/generate-cf-params-file)
 
