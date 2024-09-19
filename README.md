@@ -37,7 +37,7 @@ When `Default` and `AllowedValues` are not provided, the script generates a stri
 
 | Next Steps | Status |
 |-------|------|
-| GitHub Action | :construction: |
+| GitHub Action | :white_check_mark: |
 | Visual Studio Extension | :construction: |
 
 ## GitHub Actions
