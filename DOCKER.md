@@ -8,6 +8,18 @@ Project Status: **In Active Development**
 
 This Python script discovers CloudFormation files written in YAML and builds a parameters file for them based on CloudFormation parameter `Default:`, `AllowedValues:` and `Type:`.
 
+## Order of precedence
+
+> TL;DR: `Default` > `AllowedValues` > `Type`
+
+When `Default` is provided, the `Default` is used.
+
+When `Default` is not provided, it checks for `AllowedValues`  and picks a random value from the list of allowed values.
+
+When `Default` and `AllowedValues` are not provided, the script generates a string of alphanumeric characters with the optional relevant prefixes based on the parameter `Type`.
+
+> **Example:** For `AWS::EC2::Subnet::Id`, the script generates a string of `alphabets` with a prefix of `subnet-`. For more information, refer to `generate_value_for_parameter_type()` function within `parameter_type_handler/parameter_type_handler`.
+
 # Usage
 
 1. Run Docker container using
@@ -38,7 +50,7 @@ This Python script discovers CloudFormation files written in YAML and builds a p
 
 ```
     - name: Generate pseduo CloudFormation Parameters file 
-      uses: GeorgeDavis-Ibexlabs/generate-cf-params-file@v0.0.1
+      uses: GeorgeDavis-Ibexlabs/generate-cf-params-file@v0.0.3
 ```
 Refer to [Generate CloudFormation Parameters file using GitHub Actions](https://github.com/marketplace/actions/generate-cf-params-file)
 
